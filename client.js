@@ -16,7 +16,7 @@ const connect = function () {
   });
 
   conn.on('data', () => {
-    console.log('you ded cuz you idled');
+    console.log('you ded cuz you idled or crashed');
   });
 
   return conn;
