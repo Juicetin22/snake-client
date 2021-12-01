@@ -11,6 +11,7 @@ const connect = function () {
 
   conn.on('connect', () => {
     console.log("It's go time!");
+    conn.write('Name: MOO');
   });
 
   conn.on('data', () => {
