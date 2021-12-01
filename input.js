@@ -1,4 +1,5 @@
 // Stores the active TCP connection object.
+const {keyboard} = require('./constants');
 let connection;
 
 // setup interface to handle user input from stdin
@@ -16,45 +17,12 @@ const setupInput = function (conn) {
 };
 
 const handleUserInput = function (key) {
-  if (key === '\u0003') {
+  if (keyboard[key] === '\u0003') {
     process.exit();
+  } else if (keyboard[key]) {
+    connection.write(keyboard[key])
   }
 
-  if (key === 'w') {
-    connection.write('Move: up');
-  }
-
-  if (key === 'a') {
-    connection.write('Move: left');
-  }
-
-  if (key === 's') {
-    connection.write('Move: down');
-  }
-
-  if (key === 'd') {
-    connection.write('Move: right');
-  }
-
-  if (key === 'm') {
-    connection.write('Say: Move pls');
-  }
-
-  if (key === 'u') {
-    connection.write('Say: SNAKES');
-  }
-
-  if (key === 'i') {
-    connection.write('Say: ON');
-  }
-
-  if (key === 'o') {
-    connection.write('Say: THE');
-  }
-
-  if (key === 'p') {
-    connection.write('Say: PLANE');
-  }
 };
 
 module.exports = {
