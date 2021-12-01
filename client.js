@@ -13,6 +13,9 @@ const connect = function () {
     console.log("It's go time!");
     conn.write('Name: MOO');
   //  conn.write('Move: up');
+   /* setInterval(() => {
+      conn.write('Say: SNAKES ON THE PLANE');
+    }, 1000);*/
   });
 
   conn.on('data', () => {
